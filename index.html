@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>독일어 수업 참가 신청 | Gongsoft</title>
+  <meta name="description" content="Gongsoft 독일어 수업 참가 신청서" />
+  <style>
+    :root { --maxw: 760px; --r: 14px; }
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Apple SD Gothic Neo, Noto Sans KR, sans-serif; margin: 0; background: #f6f7f9; color: #111; }
+    header { background: #ffffff; border-bottom: 1px solid #eceef2; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 20px; }
+    h1 { font-size: 1.6rem; margin: 10px 0 6px; }
+    p.lead { color: #555; margin-top: 0; }
+    nav a { text-decoration: none; color: #111; margin-right: 14px; font-weight: 600; }
+    form { background: #fff; padding: 20px; border-radius: var(--r); box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .row-1 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    label { font-weight: 600; font-size: .95rem; margin-bottom: 6px; display: inline-block; }
+    input, select, textarea {
+      width: 100%; padding: 12px 14px; border: 1px solid #dfe3ea; border-radius: 10px; font-size: 1rem; background: #fff;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    .hint { font-size: .85rem; color: #666; margin-top: 6px; }
+    .gdpr { background: #f8fafc; border: 1px dashed #dfe3ea; padding: 12px; border-radius: 10px; }
+    .actions { display: flex; gap: 10px; margin-top: 18px; align-items: center; }
+    button {
+      border: 0; padding: 12px 18px; border-radius: 10px; font-weight: 700; cursor: pointer;
+      background: #111; color: #fff;
+    }
+    button:disabled { opacity: .6; cursor: not-allowed; }
+    small.note { color: #666; }
+    footer { color:#7a7a7a; font-size:.9rem; text-align:center; padding: 22px; }
+    @media (max-width: 720px) { .row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a href="/">Gongsoft</a>
+        <a href="/impressum.html">Impressum</a>
+        <a href="/datenschutz.html">Datenschutz</a>
+      </nav>
+      <h1>독일어 수업 참가 신청</h1>
+      <p class="lead">아래 내용을 작성해 주세요. (Deutsch unten)</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Netlify Forms: data-netlify + hidden form-name + honeypot -->
+    <form name="anmeldung" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/danke.html">
+      <input type="hidden" name="form-name" value="anmeldung" />
+      <p style="display:none">
+        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+      </p>
+
+      <div class="row">
+        <div>
+          <label for="name">이름 (Name) *</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+        <div>
+          <label for="email">이메일 (E-Mail) *</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required />
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="level">수강 희망 레벨 (Niveau) *</label>
+          <select id="level" name="level" required>
+            <option value="" disabled selected>선택</option>
+            <option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option>
+          </select>
+          <div class="hint">예: B1</div>
+        </div>
+        <div>
+          <label for="time">희망 시간대 (Zeit) *</label>
+          <select id="time" name="time" required>
+            <option value="" disabled selected>선택</option>
+            <option>오전 (Vormittag)</option>
+            <option>오후 (Nachmittag)</option>
+            <option>저녁 (Abend)</option>
+            <option>주말 (Wochenende)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row-1">
+        <div>
+          <label for="message">학습 목표 / 기타 (Lernziel / Nachricht)</label>
+          <textarea id="message" name="message" placeholder="예: C1 시험 준비, 회화 위주 원함 등"></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="how">어떻게 알게 되었나요? (Wie erfahren?)</label>
+          <select id="how" name="how">
+            <option value="" disabled selected>선택</option>
+            <option>검색</option><option>지인 추천</option><option>소셜 미디어</option><option>기타</option>
+          </select>
+        </div>
+        <div>
+          <label for="phone">연락처(선택) / Telefon</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" />
+        </div>
+      </div>
+
+      <!-- (선택) Netlify 제공 reCAPTCHA 사용하려면 주석 해제
+      <div data-netlify-recaptcha="true"></div>
+      -->
+
+      <div class="gdpr">
+        <label>
+          <input type="checkbox" name="consent" required />
+          개인정보 처리에 동의합니다. (Ich stimme der Verarbeitung meiner Daten gemäß Datenschutzhinweisen zu.) *
+        </label>
+        <div class="hint">목적: 수업 안내 및 상담. 보관기간: 목적 달성 시 또는 요청 시 삭제. 문의: info@gongsoft.co.kr (수정 가능)</div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" id="submitBtn">신청하기 Absenden</button>
+        <small class="note">* 표시는 필수 항목</small>
+      </div>
+    </form>
+  </main>
+
+  <footer>© <span id="y"></span> Gongsoft German Class</footer>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
